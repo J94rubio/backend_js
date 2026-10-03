@@ -1,0 +1,20 @@
+{
+  "name": "datespets-backend-js",
+  "version": "1.0.0",
+  "description": "Microservicios DatesPets en Node.js (mascotas, citas e IA)",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start:mascotas": "node mascotas_service/main.js",
+    "start:citas": "node citas_service/main.js",
+    "start:ia": "node ia_service/main.js",
+    "dev:mascotas": "node --env-file-if-exists=.env mascotas_service/main.js",
+    "dev:citas": "node --env-file-if-exists=.env citas_service/main.js",
+    "dev:ia": "node --env-file-if-exists=.env ia_service/main.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

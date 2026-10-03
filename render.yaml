@@ -1,0 +1,49 @@
+services:
+  - type: web
+    name: datespets-mascotas-js
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node mascotas_service/main.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 22.12.0
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+
+  - type: web
+    name: datespets-citas-js
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node citas_service/main.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 22.12.0
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+
+  - type: web
+    name: datespets-ia-js
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node ia_service/main.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 22.12.0
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3.5-flash
+      - key: MASCOTAS_SERVICE_URL
+        sync: false
+      - key: CITAS_SERVICE_URL
+        sync: false
